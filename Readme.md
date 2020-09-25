@@ -5,4 +5,4 @@ Is a project with unpublished examples of work with new methods of ONLYOFFICE do
 More informations about documentserver API see in [official documentation](https://api.onlyoffice.com/docbuilder/basic)
 
 
-* in the file name means that the example does not work correctly.
+"*" in the file name means that the example does not work correctly.
