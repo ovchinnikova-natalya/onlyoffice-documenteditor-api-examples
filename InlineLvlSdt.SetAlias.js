@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var Document = Api.GetDocument();
+var Paragraph = Document.GetElement(0);
+var InlineLvlSdt = Api.CreateInlineLvlSdt();
+var Run = Api.CreateRun();
+Run.AddText("This is an inline text content control with alias '№1'.");
+InlineLvlSdt.AddElement(Run, 0);
+InlineLvlSdt.SetAlias("№1");
+Paragraph.AddInlineLvlSdt(InlineLvlSdt);
+builder.SaveFile("docx", "InlineLvlSdt.SetAlias.docx");
+builder.CloseFile();
