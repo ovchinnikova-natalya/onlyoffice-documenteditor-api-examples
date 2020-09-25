@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var Document = Api.GetDocument();
+var Paragraph = Document.GetElement(0);
+var InlineLvlSdt = Api.CreateInlineLvlSdt();
+var Run = Api.CreateRun();
+Run.AddText("This is an inline text content control with a tag set to it.");
+InlineLvlSdt.AddElement(Run, 0);
+InlineLvlSdt.SetTag("This is a tag");
+Paragraph.AddInlineLvlSdt(InlineLvlSdt);
+var Tag = InlineLvlSdt.GetTag();
+Paragraph = Api.CreateParagraph();
+Paragraph.AddText("Tag: " + Tag);
+Document.Push(Paragraph);
+builder.SaveFile("docx", "GetTag.docx");
+builder.CloseFile();

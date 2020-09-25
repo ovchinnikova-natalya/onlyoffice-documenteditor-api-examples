@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var Document = Api.GetDocument();
+var Paragraph = Document.GetElement(0);
+var InlineLvlSdt = Api.CreateInlineLvlSdt();
+var Run = Api.CreateRun();
+Run.AddText("This is an inline text content control with a label set to it.");
+InlineLvlSdt.AddElement(Run, 0);
+InlineLvlSdt.SetLabel("2147483647");
+Paragraph.AddInlineLvlSdt(InlineLvlSdt);
+var Label = InlineLvlSdt.GetLabel();
+Paragraph = Api.CreateParagraph();
+Paragraph.AddText("Label: " + Label);
+Document.Push(Paragraph);
+builder.SaveFile("docx", "GetLabel.docx");
+builder.CloseFile();
