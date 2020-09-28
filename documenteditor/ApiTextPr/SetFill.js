@@ -1,0 +1,10 @@
+builder.CreateFile("docx");
+var Document = Api.GetDocument();
+var Paragraph, Run, TextPr;
+Paragraph = Document.GetElement(0);
+Fill = Api.CreateSolidFill(Api.CreateRGBColor(0, 0, 255));
+TextPr = Document.GetDefaultTextPr();
+TextPr.SetFill(Fill);
+Paragraph.AddText("This is a text run with the font color set to blue.");
+builder.SaveFile("docx", "SetFill.docx");
+builder.CloseFile();
