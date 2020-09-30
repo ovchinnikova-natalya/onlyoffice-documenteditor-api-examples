@@ -1,0 +1,11 @@
+builder.CreateFile("xlsx");
+var Worksheet = Api.GetActiveSheet();
+Worksheet.GetRange("A1").SetValue("1");
+var Range = Worksheet.GetRange("A1");
+Range.AddComment("This is just a number.");
+var Comments = Worksheet.GetComments();
+Worksheet.GetRange("A3").SetValue("Comments: ");
+Worksheet.GetRange("B3").SetValue(Comments);
+Worksheet.GetRange("A4").SetValue("We got all the comments on the worksheet in variable 'Comments'.");
+builder.SaveFile("xlsx", "GetComments.xlsx");
+builder.CloseFile();
