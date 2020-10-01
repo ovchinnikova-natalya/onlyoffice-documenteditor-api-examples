@@ -1,0 +1,15 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Table = Api.CreateTable(2, 4);
+Table.AddRow(1, true);
+var Row = Table.GetRow(1);
+var Cell = Row.GetCell(0);
+var Content = Cell.GetContent();
+var Paragraph = Api.CreateParagraph();
+Paragraph.AddText("New row was added here.");
+Content.Push(Paragraph);
+var Slide = Presentation.GetSlideByIndex(0);
+Slide.RemoveAllObjects();
+Slide.AddObject(Table);
+builder.SaveFile("pptx", "AddRow.pptx");
+builder.CloseFile();

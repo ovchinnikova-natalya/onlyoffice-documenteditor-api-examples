@@ -1,0 +1,10 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Table = Api.CreateTable(2, 4);
+var Fill = Api.CreateSolidFill(Api.CreateRGBColor(520, 64, 1));
+Table.SetShd(Fill);
+var Slide = Presentation.GetSlideByIndex(0);
+Slide.RemoveAllObjects();
+Slide.AddObject(Table);
+builder.SaveFile("pptx", "SetShd.pptx");
+builder.CloseFile();

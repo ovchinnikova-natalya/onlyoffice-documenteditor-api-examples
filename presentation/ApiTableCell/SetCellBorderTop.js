@@ -1,0 +1,12 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Table = Api.CreateTable(2, 4);
+var Row = Table.GetRow(0);
+var Cell = Row.GetCell(0);
+var Fill = Api.CreateSolidFill(Api.CreateRGBColor(520, 64, 1));
+Cell.SetCellBorderTop(2, Fill);
+var Slide = Presentation.GetSlideByIndex(0);
+Slide.RemoveAllObjects();
+Slide.AddObject(Table);
+builder.SaveFile("pptx", "SetCellBorderTop.pptx");
+builder.CloseFile();

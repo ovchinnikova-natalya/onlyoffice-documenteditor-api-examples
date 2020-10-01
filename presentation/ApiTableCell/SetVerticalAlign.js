@@ -1,0 +1,16 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Table = Api.CreateTable(2, 4);
+var Row = Table.GetRow(1);
+Row.SetHeight(30 * 36000);
+var Cell = Row.GetCell(0);
+var Content = Cell.GetContent();
+var Paragraph = Api.CreateParagraph();
+Paragraph.AddText("This is just a sample text.");
+Content.Push(Paragraph);
+Cell.SetVerticalAlign("bottom");
+var Slide = Presentation.GetSlideByIndex(0);
+Slide.RemoveAllObjects();
+Slide.AddObject(Table);
+builder.SaveFile("pptx", "SetVerticalAlign.pptx");
+builder.CloseFile();

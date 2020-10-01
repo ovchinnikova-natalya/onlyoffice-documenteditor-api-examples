@@ -1,0 +1,16 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Table = Api.CreateTable(2, 4);
+Table.SetPosition(608400, 1267200);
+Table.AddColumn(1, true);
+var Row = Table.GetRow(0);
+var Cell = Row.GetCell(1);
+var Content = Cell.GetContent();
+var Paragraph = Api.CreateParagraph();
+Paragraph.AddText("New column was added here.");
+Content.Push(Paragraph);
+var Slide = Presentation.GetSlideByIndex(0);
+Slide.RemoveAllObjects();
+Slide.AddObject(Table);
+builder.SaveFile("pptx", "AddColumn.pptx");
+builder.CloseFile();
