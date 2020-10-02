@@ -7,7 +7,7 @@ var Drawing = Api.CreateChart("bar3D", [
 ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
 Drawing.SetVerAxisTitle("USD In Hundred Thousands", 10);
 Drawing.SetHorAxisTitle("Year", 11);
-Drawing.SetVertAxisTickLabelPosition("nextTo");
+Drawing.SetVertAxisTickLabelPosition("high");
 Drawing.SetTitle("Financial Overview", 13);
 Paragraph.AddDrawing(Drawing);
 builder.SaveFile("docx", "SetVertAxisTickLabelPosition.docx");

@@ -1,6 +1,5 @@
 builder.CreateFile("xlsx");
 var Worksheet = Api.GetActiveSheet();
-var Range = Worksheet.GetSelection();
-Range.SetValue("selected");
+Worksheet.GetSelection().SetValue("selected");
 builder.SaveFile("xlsx", "GetSelection.xlsx");
 builder.CloseFile();

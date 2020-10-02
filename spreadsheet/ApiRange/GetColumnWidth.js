@@ -1,9 +1,7 @@
 builder.CreateFile("xlsx");
 var Worksheet = Api.GetActiveSheet();
-Worksheet.GetRange("A1").SetValue("1");
-var Range = Worksheet.GetRange("A1");
-var Width = Range.GetColumnWidth();
-Worksheet.GetRange("A3").SetValue("Width: ");
-Worksheet.GetRange("B3").SetValue(Width);
+var Width = Worksheet.GetRange("A1").GetColumnWidth();
+Worksheet.GetRange("A1").SetValue("Width: ");
+Worksheet.GetRange("B1").SetValue(Width);
 builder.SaveFile("xlsx", "GetColumnWidth.xlsx");
 builder.CloseFile();

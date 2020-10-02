@@ -13,6 +13,6 @@ Worksheet.GetRange("D2").SetValue(280);
 Worksheet.GetRange("D3").SetValue(280);
 var Chart = Worksheet.AddChart("'Sheet1'!$A$1:$D$3", true, "bar3D", 2, 100 * 36000, 70 * 36000, 5, 2 * 36000, 1, 3 * 36000);
 Chart.SetTitle('Financial Overview', 13);
-Chart.SetShowPointDataLabel(1, 0, true, false, true, false);
+Chart.SetShowPointDataLabel(1, 0, false, false, true, false);
 builder.SaveFile("xlsx", "SetShowPointDataLabel.xlsx");
 builder.CloseFile();

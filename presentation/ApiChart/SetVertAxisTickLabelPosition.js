@@ -10,7 +10,7 @@ Chart.SetVerAxisTitle("USD In Hundred Thousands", 10);
 Chart.SetHorAxisTitle("Year", 11);
 Chart.SetTitle("Financial Overview", 13);
 Chart.SetSize(300 * 36000, 130 * 36000);
-Chart.SetVertAxisTickLabelPosition("nextTo");
+Chart.SetVertAxisTickLabelPosition("high");
 Slide.AddObject(Chart);
 builder.SaveFile("pptx", "SetVertAxisTickLabelPosition.pptx");
 builder.CloseFile();
