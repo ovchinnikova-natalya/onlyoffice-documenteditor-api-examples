@@ -1,8 +1,8 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-Paragraph = Api.CreateParagraph();
-Paragraph.AddText("This is a sample text. It was inserted here.");
-Document.InsertContent([Paragraph]);
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is a sample text. It was inserted here.");
+oDocument.InsertContent([oParagraph]);
 builder.SaveFile("docx", "InsertContent.docx");
 builder.CloseFile();

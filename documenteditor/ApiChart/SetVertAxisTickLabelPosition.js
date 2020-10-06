@@ -1,14 +1,14 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-var Drawing = Api.CreateChart("bar3D", [
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oDrawing = Api.CreateChart("bar3D", [
   [200, 240, 280],
   [250, 260, 280]
 ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
-Drawing.SetVerAxisTitle("USD In Hundred Thousands", 10);
-Drawing.SetHorAxisTitle("Year", 11);
-Drawing.SetVertAxisTickLabelPosition("high");
-Drawing.SetTitle("Financial Overview", 13);
-Paragraph.AddDrawing(Drawing);
+oDrawing.SetVerAxisTitle("USD In Hundred Thousands", 10);
+oDrawing.SetHorAxisTitle("Year", 11);
+oDrawing.SetVertAxisTickLabelPosition("high");
+oDrawing.SetTitle("Financial Overview", 13);
+oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "SetVertAxisTickLabelPosition.docx");
 builder.CloseFile();

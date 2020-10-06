@@ -1,10 +1,10 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-var InlineLvlSdt = Api.CreateInlineLvlSdt();
-Paragraph.AddInlineLvlSdt(InlineLvlSdt);
-var Run = Api.CreateRun();
-Run.AddText("This is an inline text content control.");
-InlineLvlSdt.AddElement(Run, 0);
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oInlineLvlSdt = Api.CreateInlineLvlSdt();
+oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
+var oRun = Api.CreateRun();
+oRun.AddText("This is an inline text content control.");
+oInlineLvlSdt.AddElement(oRun, 0);
 builder.SaveFile("docx", "CreateInlineLvlSdt.docx");
 builder.CloseFile();

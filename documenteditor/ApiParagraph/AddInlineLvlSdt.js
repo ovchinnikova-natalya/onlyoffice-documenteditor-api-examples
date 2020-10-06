@@ -1,10 +1,10 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-var InlineLvlSdt = Api.CreateInlineLvlSdt();
-var Run = Api.CreateRun();
-Run.AddText("This is an inline text content contro.");
-InlineLvlSdt.AddElement(Run, 0);
-Paragraph.AddInlineLvlSdt(InlineLvlSdt);
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oInlineLvlSdt = Api.CreateInlineLvlSdt();
+var oRun = Api.CreateRun();
+oRun.AddText("This is an inline text content contro.");
+oInlineLvlSdt.AddElement(oRun, 0);
+oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
 builder.SaveFile("docx", "AddInlineLvlSdt.docx");
 builder.CloseFile();

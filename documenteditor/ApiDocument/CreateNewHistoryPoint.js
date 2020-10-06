@@ -1,10 +1,10 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-Paragraph.AddText('This is just a sample text.');
-Document.CreateNewHistoryPoint();
-Paragraph = Api.CreateParagraph();
-Paragraph.AddText('New history point was just created.');
-Document.Push(Paragraph);
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText('This is just a sample text.');
+oDocument.CreateNewHistoryPoint();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText('New history point was just created.');
+oDocument.Push(oParagraph);
 builder.SaveFile("docx", "CreateNewHistoryPoint.docx");
 builder.CloseFile();

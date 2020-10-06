@@ -1,8 +1,8 @@
 builder.CreateFile("docx");
-var Document = Api.GetDocument();
-var Paragraph = Document.GetElement(0);
-var Bullet = Api.CreateBullet("-");
-Paragraph.SetBullet(Bullet);
-Paragraph.AddText("This is an example of the bulleted paragraph.");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oBullet = Api.CreateBullet("-");
+oParagraph.SetBullet(oBullet);
+oParagraph.AddText("This is an example of the bulleted paragraph.");
 builder.SaveFile("docx", "SetBullet.docx");
 builder.CloseFile();
