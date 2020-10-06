@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oBlockLvlSdt = Api.CreateBlockLvlSdt();
+var oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is a block text content control with alias '№1.");
+oBlockLvlSdt.AddElement(oParagraph, 0);
+oBlockLvlSdt.SetAlias("№1");
+oDocument.AddElement(0, oBlockLvlSdt);
+var oAlias = oBlockLvlSdt.GetAlias();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Alias: " + oAlias);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetAlias.docx");
+builder.CloseFile();
