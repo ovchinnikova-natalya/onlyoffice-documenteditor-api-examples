@@ -1,6 +1,6 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-var Format = Api.Format("123456", ["$#,##0"]);
-Worksheet.GetRange("A1").SetValue(Format);
+var oWorksheet = Api.GetActiveSheet();
+var oFormat = Api.Format("123456", ["$#,##0"]);
+oWorksheet.GetRange("A1").SetValue(oFormat);
 builder.SaveFile("xlsx", "Format.xlsx");
 builder.CloseFile();

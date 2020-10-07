@@ -1,7 +1,7 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
+var oWorksheet = Api.GetActiveSheet();
 Api.SetLocale('en-CA');
-Locale = Api.GetLocale();
-Worksheet.GetRange("A1").SetValue("Locale: " + Locale);
+oLocale = Api.GetLocale();
+oWorksheet.GetRange("A1").SetValue("Locale: " + oLocale);
 builder.SaveFile("xlsx", "GetLocale.xlsx");
 builder.CloseFile();

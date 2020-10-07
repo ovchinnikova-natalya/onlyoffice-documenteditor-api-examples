@@ -1,9 +1,9 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-Worksheet.GetRange("A1").SetValue("1");
-var Range = Worksheet.GetRange("A1");
-Range.AddComment("This is just a number.");
-var Comment = Range.GetComment();
-Comment.Delete();
+var oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange("A1").SetValue("1");
+var oRange = oWorksheet.GetRange("A1");
+oRange.AddComment("This is just a number.");
+var oComment = oRange.GetComment();
+oComment.Delete();
 builder.SaveFile("xlsx", "Delete.xlsx");
 builder.CloseFile();

@@ -1,5 +1,5 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-Worksheet.GetRange("A1").SetColumnWidth(20);
+var oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange("A1").SetColumnWidth(20);
 builder.SaveFile("xlsx", "SetColumnWidth.xlsx");
 builder.CloseFile();

@@ -1,7 +1,7 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-var Index = Worksheet.GetIndex();
-Worksheet.GetRange("A1").SetValue("Index: ");
-Worksheet.GetRange("B1").SetValue(Index);
+var oWorksheet = Api.GetActiveSheet();
+var oIndex = oWorksheet.GetIndex();
+oWorksheet.GetRange("A1").SetValue("Index: ");
+oWorksheet.GetRange("B1").SetValue(oIndex);
 builder.SaveFile("xlsx", "GetIndex.xlsx");
 builder.CloseFile();

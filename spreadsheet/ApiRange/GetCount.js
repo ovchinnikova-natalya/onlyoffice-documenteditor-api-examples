@@ -1,10 +1,10 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-Worksheet.GetRange("A1").SetValue("1");
-Worksheet.GetRange("B1").SetValue("2");
-Worksheet.GetRange("C1").SetValue("3");
-var Count = Worksheet.GetRange("A1:C1").GetCount();
-Worksheet.GetRange("A4").SetValue("Count: ");
-Worksheet.GetRange("B4").SetValue(Count);
+var oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange("A1").SetValue("1");
+oWorksheet.GetRange("B1").SetValue("2");
+oWorksheet.GetRange("C1").SetValue("3");
+var oCount = oWorksheet.GetRange("A1:C1").GetCount();
+oWorksheet.GetRange("A4").SetValue("Count: ");
+oWorksheet.GetRange("B4").SetValue(oCount);
 builder.SaveFile("xlsx", "GetCount.xlsx");
 builder.CloseFile();

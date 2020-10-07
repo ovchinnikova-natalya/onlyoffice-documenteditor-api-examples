@@ -1,10 +1,10 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-var Range = Worksheet.GetRange("A1:C1");
-Range.SetHidden(true);
-Worksheet.GetRange("A1").SetValue("1");
-Worksheet.GetRange("B1").SetValue("2");
-Worksheet.GetRange("C1").SetValue("3");
-Worksheet.GetRange("A3").SetValue("The values in cells A1:C1 are hidden.");
+var oWorksheet = Api.GetActiveSheet();
+var oRange = oWorksheet.GetRange("A1:C1");
+oRange.SetHidden(true);
+oWorksheet.GetRange("A1").SetValue("1");
+oWorksheet.GetRange("B1").SetValue("2");
+oWorksheet.GetRange("C1").SetValue("3");
+oWorksheet.GetRange("A3").SetValue("The values in cells A1:C1 are hidden.");
 builder.SaveFile("xlsx", "SetHidden.xlsx");
 builder.CloseFile();

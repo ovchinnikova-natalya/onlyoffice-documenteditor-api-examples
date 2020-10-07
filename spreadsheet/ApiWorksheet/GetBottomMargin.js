@@ -1,7 +1,7 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-var BottomMargin = Worksheet.GetBottomMargin();
-Worksheet.GetRange("A1").SetValue("Bottom margin: ");
-Worksheet.GetRange("B1").SetValue(BottomMargin);
+var oWorksheet = Api.GetActiveSheet();
+var oBottomMargin = oWorksheet.GetBottomMargin();
+oWorksheet.GetRange("A1").SetValue("Bottom margin: ");
+oWorksheet.GetRange("B1").SetValue(oBottomMargin);
 builder.SaveFile("xlsx", "GetBottomMargin.xlsx");
 builder.CloseFile();

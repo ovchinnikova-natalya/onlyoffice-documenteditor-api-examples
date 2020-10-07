@@ -1,5 +1,5 @@
 builder.CreateFile("xlsx");
-var Worksheet = Api.GetActiveSheet();
-Worksheet.SetRowHeight(0, 30);
+var oWorksheet = Api.GetActiveSheet();
+oWorksheet.SetRowHeight(0, 30);
 builder.SaveFile("xlsx", "SetRowHeight.xlsx");
 builder.CloseFile();
