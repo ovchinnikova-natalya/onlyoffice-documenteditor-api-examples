@@ -11,5 +11,5 @@ var oAlias = oInlineLvlSdt.GetAlias();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("Alias: " + oAlias);
 oDocument.Push(oParagraph);
-builder.SaveFile("docx", "InlineLvlSdt.GetAlias.docx");
+builder.SaveFile("docx", "GetAlias.docx");
 builder.CloseFile();

@@ -8,7 +8,7 @@ var oDrawing = Api.CreateChart("bar3D", [
 oDrawing.SetVerAxisTitle("USD In Hundred Thousands", 10);
 oDrawing.SetHorAxisTitle("Year", 11);
 oStroke = Api.CreateStroke(1 * 150, Api.CreateSolidFill(Api.CreateRGBColor(155, 64, 1)));
-oDrawing.SetMinorHorizontalGridlines(Stroke);
+oDrawing.SetMinorHorizontalGridlines(oStroke);
 oDrawing.SetTitle("Financial Overview", 13);
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "SetMinorHorizontalGridlines.docx");
