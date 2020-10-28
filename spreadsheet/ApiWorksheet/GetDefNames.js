@@ -7,6 +7,6 @@ oWorksheet.GetRange("B2").SetValue("B");
 oWorksheet.AddDefName("numbers", "Sheet1!$A$1:$B$1");
 oWorksheet.AddDefName("letters", "Sheet1!$A$2:$B$2");
 var oDefNames = oWorksheet.GetDefNames();
-oWorksheet.GetRange("A4").SetValue("We got the objects of all the names on the  worksheet in variable 'DefNames'.");
+oWorksheet.GetRange("A4").SetValue("DefNames: " + oDefNames[0].GetName() + ", " + oDefNames[1].GetName());
 builder.SaveFile("xlsx", "GetDefNames.xlsx");
 builder.CloseFile();
