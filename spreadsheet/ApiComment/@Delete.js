@@ -5,5 +5,6 @@ var oRange = oWorksheet.GetRange("A1");
 oRange.AddComment("This is just a number.");
 var oComment = oRange.GetComment();
 oComment.Delete();
+oWorksheet.GetRange("A3").SetValue("The comment from the cell A1 was deleted.");
 builder.SaveFile("xlsx", "Delete.xlsx");
 builder.CloseFile();
