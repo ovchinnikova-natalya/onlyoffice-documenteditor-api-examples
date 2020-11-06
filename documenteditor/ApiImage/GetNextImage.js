@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oImage1 = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+oParagraph.AddDrawing(oImage1);
+oImage2 = Api.CreateImage("https://helpcenter.onlyoffice.com/images/Help/GettingStarted/Documents/big/EditDocument.png", 60 * 36000, 35 * 36000);
+oParagraph.AddLineBreak();
+oParagraph.AddDrawing(oImage2);
+oNextImage = oImage1.GetNextImage();
+oCopyImage = oNextImage.Copy();
+oParagraph.AddLineBreak();
+oParagraph.AddDrawing(oCopyImage);
+builder.SaveFile("docx", "GetNextImage.docx");
+builder.CloseFile();

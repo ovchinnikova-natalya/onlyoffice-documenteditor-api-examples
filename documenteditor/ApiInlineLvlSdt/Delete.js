@@ -1,0 +1,10 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oInlineLvlSdt = Api.CreateInlineLvlSdt();
+oInlineLvlSdt.AddText("This is an inline text content control.");
+oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
+oInlineLvlSdt.Delete();
+oParagraph.AddText("The inline text content control was removed.");
+builder.SaveFile("docx", "Delete.docx");
+builder.CloseFile();

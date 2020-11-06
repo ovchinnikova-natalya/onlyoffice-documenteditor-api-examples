@@ -1,0 +1,13 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oInlineLvlSdt = Api.CreateInlineLvlSdt();
+oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
+oRun = Api.CreateRun();
+oRun.AddText("This is an inline text content control.");
+oInlineLvlSdt.AddElement(oRun, 0);
+oRun = Api.CreateRun();
+oRun.AddText("This sentence was pushed here.");
+oInlineLvlSdt.Push(oRun);
+builder.SaveFile("docx", "Push.docx");
+builder.CloseFile();
