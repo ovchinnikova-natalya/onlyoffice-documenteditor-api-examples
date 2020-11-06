@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oDocument.Push(oTable);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is just a sample text.");
+oTable.AddElement(0, oParagraph);
+oParentTable = oParagraph.GetParentTable();
+oCell = oParentTable.GetRow(2).GetCell(0);
+oParentTable.RemoveRow(oCell);
+builder.SaveFile("docx", "GetParentTable.docx");
+builder.CloseFile();

@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph1 = oDocument.GetElement(0);
+oParagraph1.AddText("This is just a sample paragraph №1.");
+oParagraph2 = Api.CreateParagraph();
+oParagraph2.AddText("This is just a sample paragraph №2.");
+oDocument.Push(oParagraph2);
+oPreviousParagraph = oParagraph2.GetPrevious();
+oPreviousParagraph.SetBold(true);
+builder.SaveFile("docx", "GetPrevious.docx");
+builder.CloseFile();

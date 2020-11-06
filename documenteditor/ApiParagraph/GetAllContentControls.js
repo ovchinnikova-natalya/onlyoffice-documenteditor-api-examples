@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oInlineLvlSdt = Api.CreateInlineLvlSdt();
+oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
+oRun = Api.CreateRun();
+oRun.AddText("This is an inline text content control.");
+oInlineLvlSdt.AddElement(oRun);
+oContentControls = oParagraph.GetAllContentControls();
+oContentControls[0].GetElement(0).SetBold(true);
+oClassType = oContentControls[0].GetClassType();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Class type: " + oClassType);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetAllContentControls.docx");
+builder.CloseFile();
