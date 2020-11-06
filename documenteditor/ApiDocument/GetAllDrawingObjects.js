@@ -16,7 +16,7 @@ oDrawing2.SetHorAxisTitle("Year", 11);
 oDrawing2.SetLegendPos("bottom");
 oDrawing2.SetShowDataLabels(false, false, true, false);
 oDrawing2.SetTitle("Financial Overview", 13);
-oParagraph.AddDrawing(oDrawing);
+oParagraph.AddDrawing(oDrawing2);
 var oDrawings = oDocument.GetAllDrawingObjects();
 oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
 oDrawings[0].Fill(oFill);
