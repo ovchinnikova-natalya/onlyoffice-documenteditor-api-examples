@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oCell = oTable.GetCell(0, 0);
+oDocument.Push(oTable);
+oCell.Split(2, 2);
+builder.SaveFile("docx", "Split.docx");
+builder.CloseFile();

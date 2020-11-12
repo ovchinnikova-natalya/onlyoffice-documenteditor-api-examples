@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oRun = Api.CreateRun();
+oRun.AddText("ONLYOFFICE Document Builder");
+oParagraph.AddElement(oRun);
+oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+oHyperlink.SetLink("https://api.onlyoffice.com/");
+oLinkedText = oHyperlink.GetLinkedText();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Linked text: " + oLinkedText);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetLinkedText.docx");
+builder.CloseFile();

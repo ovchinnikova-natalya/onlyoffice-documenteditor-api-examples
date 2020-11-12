@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oDocument.Push(oTable);
+oCell = oTable.GetCell(0, 0).GetContent().GetElement(0).AddText("Two new rows were added after this cell.");
+oTable.AddRows(oCell, 2, false);
+builder.SaveFile("docx", "AddRows.docx");
+builder.CloseFile();

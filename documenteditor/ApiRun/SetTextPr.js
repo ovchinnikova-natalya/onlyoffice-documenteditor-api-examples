@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oRun = Api.CreateRun();
+oRun.AddText("This is just a sample text.");
+oParagraph.AddElement(oRun);
+oTextPr = oDocument.GetDefaultTextPr();
+oTextPr.SetFontSize(30);
+oTextPr.SetBold(true);
+oRun.SetTextPr(oTextPr);
+builder.SaveFile("docx", "SetTextPr.docx");
+builder.CloseFile();

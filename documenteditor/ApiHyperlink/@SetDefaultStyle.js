@@ -1,0 +1,10 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("Api Document Builder");
+oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+oText = oHyperlink.GetLinkedText();
+oParagraph.SetFontSize(16);
+oHyperlink.SetDefaultStyle();
+builder.SaveFile("docx", "SetDefaultStyle .docx");
+builder.CloseFile();

@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("Api Document Builder.");
+oRun = Api.CreateRun();
+oRun.AddText(" ONLYOFFICE for developers");
+oParagraph.AddElement(oRun);
+oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+oElement = oHyperlink.GetElement(1);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddElement(oElement);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetElement.docx");
+builder.CloseFile();

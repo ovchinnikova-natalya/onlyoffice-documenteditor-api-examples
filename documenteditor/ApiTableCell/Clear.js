@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oTable.GetCell(0, 0).GetContent().GetElement(0).AddText("This is just a sample text.");
+oDocument.Push(oTable);
+oTable.GetCell(0, 0).Clear();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The content of the table cell was cleared.");
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "Clear.docx");
+builder.CloseFile();

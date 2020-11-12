@@ -1,0 +1,10 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("ONLYOFFICE Document Builder");
+oRange = oParagraph.GetRange(0, 9);
+oRange.Select();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The word 'ONLYOFFICE' was just selected.");
+builder.SaveFile("docx", "Select.docx");
+builder.CloseFile();

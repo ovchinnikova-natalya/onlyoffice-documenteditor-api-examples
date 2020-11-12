@@ -1,0 +1,13 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oDocument.Push(oTable);
+oTable.GetCell(0, 0).GetContent().GetElement(0).AddText("This is just a sample text.");
+oRange = oTable.GetRange(0, 3);
+oRange.SetBold(true);
+builder.SaveFile("docx", "GetRange.docx");
+builder.CloseFile();
