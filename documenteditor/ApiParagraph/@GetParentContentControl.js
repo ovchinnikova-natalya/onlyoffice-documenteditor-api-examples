@@ -1,15 +1,12 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
-oParagraph = oDocument.GetElement(0);
-oInlineLvlSdt = Api.CreateInlineLvlSdt();
-oRun = Api.CreateRun();
-oRun.AddText("This is an inline text content control.");
-oInlineLvlSdt.AddElement(oRun);
-oParagraph.AddInlineLvlSdt(oInlineLvlSdt);
+oBlockLvlSdt = Api.CreateBlockLvlSdt();
+oBlockLvlSdt.AddText("This is an inline text content control.");
+oDocument.Push(0, oBlockLvlSdt);
 oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is a paragraph added to the inline text content control.")
-oInlineLvlSdt.AddElement(oParagraph);
-oParentInlineLvlSdt = oParagraph.GetParentContentControl();
-oParentInlineLvlSdt.GetRange(0).SetBold(true);
+oParagraph.AddText("This is a paragraph added to the inline text content control.");
+oBlockLvlSdt.AddElement(oParagraph);
+oParentBlockLvlSdt = oParagraph.GetParentContentControl();
+oParentBlockLvlSdt.GetRange(0, 3).SetBold(true);
 builder.SaveFile("docx", "GetParentContentControl.docx");
 builder.CloseFile();

@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oRun1 = Api.CreateRun();
+oRun1.AddText("ONLYOFFICE Document Builder.");
+oParagraph.AddElement(oRun1);
+oRun2 = Api.CreateRun();
+oRun2.AddText(" ONLYOFFICE for developers.");
+oParagraph.AddElement(oRun2);
+oRun1.Select();
+oRange = oDocument.GetRangeBySelect();
+oRange.SetBold(true);
+builder.SaveFile("docx", "GetRangeBySelect.docx");
+builder.CloseFile();

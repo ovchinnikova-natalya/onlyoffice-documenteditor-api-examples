@@ -1,0 +1,13 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oRun = Api.CreateRun();
+oRun.AddText("ONLYOFFICE Document Builder");
+oParagraph.AddElement(oRun);
+oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+oClassType = oHyperlink.GetClassType();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Class type: " + oClassType);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetClassType.docx");
+builder.CloseFile();

@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing);
+oContent = oDrawing.GetContent();
+oContent.RemoveAllElements();
+oParagraph = Api.CreateParagraph();
+oParagraph.SetJc("left");
+oParagraph.AddText("We removed all elements from the shape and added a new paragraph inside it.");
+oContent.Push(oParagraph);
+builder.SaveFile("docx", "GetContent.docx");
+builder.CloseFile();

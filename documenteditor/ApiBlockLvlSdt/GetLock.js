@@ -1,12 +1,12 @@
 builder.CreateFile("docx");
-var oDocument = Api.GetDocument();
-var oBlockLvlSdt = Api.CreateBlockLvlSdt();
-var oParagraph = Api.CreateParagraph();
+oDocument = Api.GetDocument();
+oBlockLvlSdt = Api.CreateBlockLvlSdt();
+oParagraph = Api.CreateParagraph();
 oParagraph.AddText("This is a block text content control with the content lock set to it.");
 oBlockLvlSdt.AddElement(oParagraph, 0);
 oBlockLvlSdt.SetLock("sdtContentLocked");
 oDocument.AddElement(0, oBlockLvlSdt);
-var oLock = oBlockLvlSdt.GetLock();
+oLock = oBlockLvlSdt.GetLock();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("Lock type: " + oLock);
 oDocument.Push(oParagraph);

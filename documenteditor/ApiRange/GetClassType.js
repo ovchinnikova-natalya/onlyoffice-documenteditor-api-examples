@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("ONLYOFFICE Document Builder");
+oRange = oParagraph.GetRange(0, 9);
+oClassType = oRange.GetClassType();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Class type: " + oClassType);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetClassType.docx");
+builder.CloseFile();

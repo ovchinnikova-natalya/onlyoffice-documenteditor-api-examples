@@ -1,0 +1,10 @@
+builder.CreateFile("xlsx");
+oWorksheet = Api.GetActiveSheet();
+oWorksheet.GetRange("B1").SetValue(1);
+oWorksheet.GetRange("C1").SetValue(2);
+oRange = oWorksheet.GetRange("A1");
+oRange.SetValue("=SUM(B1:C1)");
+oFormula = oRange.GetFormula();
+oWorksheet.GetRange("A3").SetValue("Formula of cell A1: " + oFormula);
+builder.SaveFile("xlsx", "GetFormula.xlsx");
+builder.CloseFile();
