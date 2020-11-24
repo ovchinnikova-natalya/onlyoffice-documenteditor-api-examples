@@ -1,6 +1,6 @@
 builder.CreateFile("xlsx");
-var oWorksheet = Api.GetActiveSheet();
-var oRange = oWorksheet.GetRange("A1:C1");
+oWorksheet = Api.GetActiveSheet();
+oRange = oWorksheet.GetRange("A1:C1");
 oWorksheet.GetRange("A1").SetValue("1");
 oWorksheet.GetRange("B1").SetValue("2");
 oWorksheet.GetRange("C1").SetValue("3");

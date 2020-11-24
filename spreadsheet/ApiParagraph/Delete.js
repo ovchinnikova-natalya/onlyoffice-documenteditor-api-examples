@@ -6,9 +6,9 @@ oShape = oWorksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, o
 oDocContent = oShape.GetDocContent();
 oDocContent.RemoveAllElements();
 oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is just a sample text that was copied.");
+oParagraph.AddText("This is just a sample text.");
 oDocContent.Push(oParagraph);
-oCopyParagraph = oParagraph.Copy();
-oDocContent.Push(oCopyParagraph);
-builder.SaveFile("xlsx", "Copy.xlsx");
+oParagraph.Delete();
+oWorksheet.GetRange("A1").SetValue("The paragraph from the shape content was removed.");
+builder.SaveFile("xlsx", "Delete.xlsx");
 builder.CloseFile();

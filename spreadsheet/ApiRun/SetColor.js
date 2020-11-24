@@ -6,9 +6,8 @@ oShape = oWorksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, 
 oDocContent = oShape.GetDocContent();
 oParagraph = oDocContent.GetElement(0);
 oRun = Api.CreateRun();
-oRun.AddText("This is just a sample text that was copied. ");
+oRun.AddText("This is a text run with the font color set to blue.");
 oParagraph.AddElement(oRun);
-oCopyRun = oRun.Copy();
-oParagraph.AddElement(oCopyRun);
-builder.SaveFile("xlsx", "Copy.xlsx");
+oRun.SetColor(0, 0, 255);
+builder.SaveFile("xlsx", "SetColor.xlsx");
 builder.CloseFile();

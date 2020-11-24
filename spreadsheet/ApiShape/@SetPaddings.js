@@ -6,9 +6,8 @@ oShape = oWorksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, 
 oDocContent = oShape.GetDocContent();
 oParagraph = oDocContent.GetElement(0);
 oRun = Api.CreateRun();
-oRun.AddText("This is just a sample text that was copied. ");
+oRun.AddText("This is a sample text with paddings set to it.");
 oParagraph.AddElement(oRun);
-oCopyRun = oRun.Copy();
-oParagraph.AddElement(oCopyRun);
-builder.SaveFile("xlsx", "Copy.xlsx");
+oShape.SetPaddings(20 * 36000, 5 * 36000, 5 * 36000, 3 * 36000);
+builder.SaveFile("xlsx", "SetPaddings.xlsx");
 builder.CloseFile();

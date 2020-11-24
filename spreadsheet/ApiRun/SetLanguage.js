@@ -6,9 +6,8 @@ oShape = oWorksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, 
 oDocContent = oShape.GetDocContent();
 oParagraph = oDocContent.GetElement(0);
 oRun = Api.CreateRun();
-oRun.AddText("This is just a sample text that was copied. ");
+oRun.AddText("This is a text run with the text language set to English (Canada).");
+oRun.SetLanguage("en-CA");
 oParagraph.AddElement(oRun);
-oCopyRun = oRun.Copy();
-oParagraph.AddElement(oCopyRun);
-builder.SaveFile("xlsx", "Copy.xlsx");
+builder.SaveFile("xlsx", "SetLanguage.xlsx");
 builder.CloseFile();

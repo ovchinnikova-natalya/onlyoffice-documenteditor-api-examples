@@ -1,0 +1,17 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oPresentation.SetSizes(254 * 36000, 190 * 36000);
+oSlide = oPresentation.GetCurrentSlide();
+oSlide.RemoveAllObjects();
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oShape = Api.CreateShape("flowChartOnlineStorage", 200 * 36000, 130 * 36000, oFill, oStroke);
+oShape.SetPosition(608400, 1267200);
+oContent = oShape.GetContent();
+oContent.RemoveAllElements();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("We removed all elements from the shape and added a new paragraph inside it.");
+oContent.Push(oParagraph);
+oSlide.AddObject(oShape);
+builder.SaveFile("pptx", "GetContent.pptx");
+builder.CloseFile();

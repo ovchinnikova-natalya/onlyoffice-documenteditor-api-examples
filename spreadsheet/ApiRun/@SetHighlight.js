@@ -6,9 +6,8 @@ oShape = oWorksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, 
 oDocContent = oShape.GetDocContent();
 oParagraph = oDocContent.GetElement(0);
 oRun = Api.CreateRun();
-oRun.AddText("This is just a sample text that was copied. ");
+oRun.AddText("This is a text run with the text highlighted with yellow color.");
 oParagraph.AddElement(oRun);
-oCopyRun = oRun.Copy();
-oParagraph.AddElement(oCopyRun);
-builder.SaveFile("xlsx", "Copy.xlsx");
+oRun.SetHighlight(255, 255, 0);
+builder.SaveFile("xlsx", "SetHighlight.xlsx");
 builder.CloseFile();

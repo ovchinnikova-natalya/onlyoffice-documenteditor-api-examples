@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+oRun1 = Api.CreateRun();
+oRun1.AddText("This is the first run.");
+oParagraph.AddElement(oRun1);
+oRun2 = Api.CreateRun();
+oRun2.AddText(" This is the second run.");
+oParagraph.AddElement(oRun2);
+oFirstRun = Api.GetFirstRunInArray([oRun1, oRun2]);
+oParagraph.AddLineBreak();
+oParagraph.AddElement(oFirstRun);
+builder.SaveFile("docx", "GetFirstRunInArray.docx");
+builder.CloseFile();

@@ -1,0 +1,15 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oTable = Api.CreateTable(2, 4);
+oTable.SetPosition(608400, 1267200);
+oRow = oTable.GetRow(0);
+oCell = oRow.GetCell(0);
+oContent = oCell.GetContent();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This table is selected.");
+oContent.Push(oParagraph);
+oTable.Select();
+oSlide.RemoveAllObjects();
+oSlide.AddObject(oTable);
+builder.SaveFile("pptx", "Select.pptx");
+builder.CloseFile();
