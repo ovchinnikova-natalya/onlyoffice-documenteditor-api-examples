@@ -12,7 +12,6 @@ for (let i = 0; i < 3; i++) {
 oParagraph.AddText("!");
 Api.LoadMailMergeData([arrField, ["Dear", "John", "Smith"], ["Hello", "Lara", "Davis"]]);
 oMailMergeDocContent = Api.GetMailMergeTemplateDocContent();
-Api.MailMerge();
 Api.ReplaceDocumentContent(oMailMergeDocContent);
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("We got the mail merge template document and replaced the main document with it.")
