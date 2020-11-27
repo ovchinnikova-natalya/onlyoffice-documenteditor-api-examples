@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+lFontList = Api.pluginMethod_GetFontList();
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+lFontList = Api.pluginMethod_GetFontList();
+oDocument = Api.GetDocument();
+oParagraph = oDocument.GetElement(0);
+sFontName = lFontList[0]["m_wsFontName"];
+oParagraph.AddText("Font name: " + sFontName);
+builder.SaveFile("docx", "GetFontList.docx");
+builder.CloseFile();
