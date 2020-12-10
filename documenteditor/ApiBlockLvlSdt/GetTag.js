@@ -1,14 +1,11 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
 oBlockLvlSdt = Api.CreateBlockLvlSdt();
-oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is a block text content control with a tag set to it.");
-oBlockLvlSdt.AddElement(oParagraph, 0);
+oBlockLvlSdt.GetContent().GetElement(0).AddText("This is a block text content control with a tag set to it.");
 oBlockLvlSdt.SetTag("This is a tag.");
 oDocument.AddElement(0, oBlockLvlSdt);
 oTag = oBlockLvlSdt.GetTag();
-oParagraph = Api.CreateParagraph();
+oParagraph = oDocument.GetElement(1);
 oParagraph.AddText("Tag: " + oTag);
-oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetTag.docx");
 builder.CloseFile();

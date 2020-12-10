@@ -1,10 +1,10 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
 oBlockLvlSdt1 = Api.CreateBlockLvlSdt();
-oBlockLvlSdt1.AddText("This is a parent block text content control.");
+oBlockLvlSdt1.GetContent().GetElement(0).AddText("This is a parent block text content control.");
 oDocument.AddElement(0, oBlockLvlSdt1);
 oBlockLvlSdt2 = Api.CreateBlockLvlSdt();
-oBlockLvlSdt2.AddText("This is a block text content control added in another content control.");
+oBlockLvlSdt2.GetContent().GetElement(0).AddText("This is a block text content control added in another content control.");
 oBlockLvlSdt1.AddElement(oBlockLvlSdt2, 0);
 oParentBlockLvlSdt = oBlockLvlSdt2.GetParentContentControl();
 oParentBlockLvlSdt.SetAlias("№1");

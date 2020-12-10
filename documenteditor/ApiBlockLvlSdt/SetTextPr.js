@@ -1,7 +1,7 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
 oBlockLvlSdt = Api.CreateBlockLvlSdt();
-oBlockLvlSdt.AddText("This is a block text content control with the font size set to 30 and the font weight set to bold.");
+oBlockLvlSdt.GetContent().GetElement(0).AddText("This is a block text content control with the font size set to 30 and the font weight set to bold.");
 oDocument.AddElement(0, oBlockLvlSdt);
 oTextPr = oDocument.GetDefaultTextPr();
 oTextPr.SetFontSize(30);

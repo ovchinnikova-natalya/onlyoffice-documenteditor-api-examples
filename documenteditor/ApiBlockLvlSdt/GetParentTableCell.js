@@ -6,7 +6,7 @@ oTable = Api.CreateTable(3, 3);
 oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 oBlockLvlSdt = Api.CreateBlockLvlSdt();
-oBlockLvlSdt.AddText("This is a block text content control.");
+oBlockLvlSdt.GetContent().GetElement(0).AddText("This is a block text content control.");
 oCell = oTable.GetRow(0).GetCell(0);
 oCell.AddElement(0, oBlockLvlSdt);
 oParentTableCell = oBlockLvlSdt.GetParentTableCell();

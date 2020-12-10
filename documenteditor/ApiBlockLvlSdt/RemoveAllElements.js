@@ -1,13 +1,10 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
 oBlockLvlSdt = Api.CreateBlockLvlSdt();
-oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is a block text content control.");
-oBlockLvlSdt.AddElement(oParagraph, 0);
+oBlockLvlSdt.GetContent().GetElement(0).AddText("This is a block text content control.");
 oDocument.AddElement(0, oBlockLvlSdt);
 oBlockLvlSdt.RemoveAllElements();
-oParagraph = Api.CreateParagraph();
+oParagraph = oDocument.GetElement(1);
 oParagraph.AddText("All elements were removed from the content control.");
-oDocument.Push(oParagraph);
 builder.SaveFile("docx", "RemoveAllElements.docx");
 builder.CloseFile();
