@@ -1,9 +1,7 @@
 builder.CreateFile("docx");
 oDocument = Api.GetDocument();
 oBlockLvlSdt = Api.CreateBlockLvlSdt();
-oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is the first paragraph of the content control.");
-oBlockLvlSdt.AddElement(oParagraph, 0);
+oBlockLvlSdt.GetContent().GetElement(0).AddText("This is the first paragraph of the content control.");
 oContent = oBlockLvlSdt.GetContent();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("This is the second paragraph of the content control.");
