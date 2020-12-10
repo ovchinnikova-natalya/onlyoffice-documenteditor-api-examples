@@ -9,5 +9,6 @@ oHyperlink.SetScreenTipText("ONLYOFFICE for developers");
 oScreenTipText = oHyperlink.GetScreenTipText();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("Screen tip text: " + oScreenTipText);
+oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetScreenTipText.docx");
 builder.CloseFile();

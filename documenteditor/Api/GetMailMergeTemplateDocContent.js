@@ -14,6 +14,6 @@ Api.LoadMailMergeData([arrField, ["Dear", "John", "Smith"], ["Hello", "Lara", "D
 oMailMergeDocContent = Api.GetMailMergeTemplateDocContent();
 Api.ReplaceDocumentContent(oMailMergeDocContent);
 oParagraph = Api.CreateParagraph();
-oParagraph.AddText("We got the mail merge template document and replaced the main document with it.")
+oParagraph.AddText("We got the mail merge template document and replaced the main document with it.");
 builder.SaveFile("docx", "GetMailMergeTemplateDocContent.docx");
 builder.CloseFile();
