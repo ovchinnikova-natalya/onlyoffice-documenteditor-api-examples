@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+oTable = Api.CreateTable(3, 3);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oBlockLvlSdt = oTable.InsertInContentControl(1);
+oDocument.AddElement(0, oBlockLvlSdt);
+builder.SaveFile("docx", "InsertInContentControl.docx");
+builder.CloseFile();

@@ -1,8 +1,14 @@
 builder.CreateFile("xlsx");
-var oWorksheet = Api.GetActiveSheet();
+oWorksheet = Api.GetActiveSheet();
 oWorksheet.GetRange("A1").SetValue("1");
 oWorksheet.GetRange("B1").SetValue("2");
-var oRange = oWorksheet.GetRange("A2:B2");
-oRange.ForEach("=SUM(A1:B1)");
+oWorksheet.GetRange("C1").SetValue("3");
+oRange = oWorksheet.GetRange("A1:C1");
+oRange.ForEach(function (range) {
+    sValue = range.GetValue();
+    if (sValue !== '1') {
+        range.SetBold(true);
+    }
+});
 builder.SaveFile("xlsx", "ForEach.xlsx");
 builder.CloseFile();

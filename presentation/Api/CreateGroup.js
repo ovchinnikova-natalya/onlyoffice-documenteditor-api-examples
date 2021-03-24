@@ -1,0 +1,15 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oSlide.RemoveAllObjects();
+oFill1 = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
+oFill2 = Api.CreateSolidFill(Api.CreateRGBColor(100, 0, 0));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oShape1 = Api.CreateShape("rect", 300 * 36000, 130 * 36000, oFill1, oStroke);
+oShape2 = Api.CreateShape("rect", 150 * 36000, 80 * 36000, oFill2, oStroke);
+oGroup = Api.CreateGroup([oShape1, oShape2]);
+oShape1.SetPosition(608400, 1267200);
+oShape2.SetPosition(3100000, 1867200);
+oSlide.AddObject(oGroup);
+builder.SaveFile("pptx", "CreateGroup.pptx");
+builder.CloseFile();
