@@ -1,0 +1,18 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph = Api.CreateParagraph();
+oBlockLvlSdt = Api.CreateBlockLvlSdt();
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 0, 255));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing1 = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing2 = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing1);
+oParagraph.AddDrawing(oDrawing2);
+oBlockLvlSdt.AddElement(oParagraph, 0);
+oDocument.AddElement(0, oBlockLvlSdt);
+arrAllDrawingObjects = oBlockLvlSdt.GetAllDrawingObjects();
+arrAllDrawingObjects[0].Delete();
+builder.SaveFile("docx", "GetAllDrawingObjects.docx");
+builder.CloseFile();
