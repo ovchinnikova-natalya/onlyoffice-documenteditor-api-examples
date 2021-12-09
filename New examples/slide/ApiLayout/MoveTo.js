@@ -1,0 +1,11 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oMaster = oPresentation.GetMaster();
+oLayout1 = Api.CreateLayout(oMaster);
+oLayout2 = Api.CreateLayout(oMaster);
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oLayout2.SetBackground(oFill);
+oLayout2.MoveTo(0);
+builder.SaveFile("pptx", "MoveTo.pptx");
+builder.CloseFile();

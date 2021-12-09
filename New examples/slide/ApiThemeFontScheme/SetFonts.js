@@ -1,0 +1,10 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oMaster = oPresentation.GetMaster();
+oFontScheme = Api.CreateThemeFontScheme("Times New Roman", "Ani", "Ubuntu", "Arial", "Rekha", "padmaa", "New font scheme");
+oFontScheme.SetFonts("Ani", "Times New Roman", "Arial", "Ubuntu", "padmaa", "Rekha");
+oTheme = oSlide.GetTheme();
+oTheme.SetFontScheme(oFontScheme);
+builder.SaveFile("pptx", "SetFonts.pptx");
+builder.CloseFile();

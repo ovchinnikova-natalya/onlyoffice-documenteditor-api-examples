@@ -1,0 +1,13 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 224, 204), 0);
+oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 164, 101), 100000);
+oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
+oSlide.AddDrawing(oDrawing);
+oCopyDrawing = oDrawing.Copy();
+oSlide.AddDrawing(oCopyDrawing);
+builder.SaveFile("pptx", "Copy.pptx");
+builder.CloseFile();

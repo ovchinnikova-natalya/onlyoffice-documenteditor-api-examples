@@ -1,0 +1,13 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oParagraph1 = oDocument.GetElement(0);
+oRun1 = Api.CreateRun();
+oRun1.AddText("This is just a sample run №1.");
+oParagraph.AddElement(oRun1);
+oRun2 = Api.CreateRun();
+oRun2.AddText(" This is just a sample run №2.");
+oParagraph.AddElement(oRun2);
+oPreviousRun = oRun2.GetPrevious();
+oPreviousRun.SetBold(true);
+builder.SaveFile("docx", "GetPrevious.docx");
+builder.CloseFile();

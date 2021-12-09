@@ -1,0 +1,10 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oMaster = oPresentation.GetMaster();
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oMaster.SetBackground(oFill);
+oCopyMaster = oMaster.Copy();
+oPresentation.AddMaster(oCopyMaster);
+builder.SaveFile("pptx", "Copy.pptx");
+builder.CloseFile();
