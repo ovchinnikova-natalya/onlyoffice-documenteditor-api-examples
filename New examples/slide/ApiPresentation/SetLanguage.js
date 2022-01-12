@@ -1,0 +1,15 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oPresentation.SetLanguage("en-CA");
+oSlide = oPresentation.GetSlideByIndex(0);
+oSlide.RemoveAllObjects();
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oShape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, oFill, oStroke);
+oShape.SetPosition(608400, 1267200);
+oDocContent = oShape.GetDocContent();
+oParagraph = oDocContent.GetElement(0);
+oParagraph.AddText("English (Canada) will be used to check spelling and grammar in this presentation (if requested).");
+oSlide.AddObject(oShape);
+builder.SaveFile("pptx", "SetLanguage.pptx");
+builder.CloseFile();
