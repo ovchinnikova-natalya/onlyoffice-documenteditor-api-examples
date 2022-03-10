@@ -1,13 +1,11 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
 oSlide = oPresentation.GetSlideByIndex(0);
-oMaster = oPresentation.GetMaster();
+oSlide.RemoveAllObjects();
+oMaster = oPresentation.GetMaster(0);
 oTheme = oMaster.GetTheme();
-oFontScheme = Api.CreateThemeFontScheme("Times New Roman", "Ani", "Ubuntu", "Arial", "Rekha", "padmaa", "New font scheme");
-oTheme.SetFontScheme(oFontScheme);
 oFontScheme = oTheme.GetFontScheme();
 sType = oFontScheme.GetClassType();
-oSlide.RemoveAllObjects();
 oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
 oStroke = Api.CreateStroke(0, Api.CreateNoFill());
 oShape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, oFill, oStroke);

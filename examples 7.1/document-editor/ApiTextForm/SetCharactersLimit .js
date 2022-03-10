@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a text form to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aTextForm = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+aTextForm[0].SetCharactersLimit(5);
+aTextForm[0].SetText("Country");
+var nLimit = aTextForm[0].GetCharactersLimit();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Characters limit: " + nLimit);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "SetCharactersLimit.docx");
+builder.CloseFile();

@@ -1,8 +1,10 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
 oSlide = oPresentation.GetSlideByIndex(0);
-oMaster = oPresentation.GetMaster();
-oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oMaster = oPresentation.GetMaster(0);
+oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 224, 204), 0);
+oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(61, 74, 107), 100000);
+oFill = Api.CreateRadialGradientFill([oGs1, oGs2]);
 oMaster.SetBackground(oFill);
 builder.SaveFile("pptx", "SetBackground.pptx");
 builder.CloseFile();

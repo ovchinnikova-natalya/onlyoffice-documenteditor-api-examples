@@ -1,13 +1,8 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
-oSlide = Api.CreateSlide();
-oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 224, 204), 0);
-oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 164, 101), 100000);
-oFill = Api.CreateRadialGradientFill([oGs1, oGs2]);
-oSlide.SetBackground(oFill);
-oPresentation.AddSlide(oSlide);
-nIndex = oSlide.GetSlideIndex();
+oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
+nIndex = oSlide.GetSlideIndex();
 oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
 oStroke = Api.CreateStroke(0, Api.CreateNoFill());
 oShape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, oFill, oStroke);

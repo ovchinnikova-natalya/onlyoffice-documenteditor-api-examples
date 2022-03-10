@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a text field to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aFields = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+aFields[0].SetText("Country");
+oDocument.ClearAllFields();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The first field from this document was just cleared.");
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "ClearAllFields.docx");
+builder.CloseFile();

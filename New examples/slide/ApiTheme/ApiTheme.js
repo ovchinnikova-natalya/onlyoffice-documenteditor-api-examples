@@ -1,0 +1,44 @@
+builder.CreateFile("pptx");
+oPresentation = Api.GetPresentation();
+oSlide = oPresentation.GetSlideByIndex(0);
+oMaster = oPresentation.GetMaster(0);
+oTheme = oMaster.GetTheme();
+sThemeType = oTheme.GetClassType();
+oFontScheme = oTheme.GetFontScheme();
+sFontSchemeType = oFontScheme.GetClassType();
+oFormatScheme = oTheme.GetFormatScheme();
+sFormatSchemeType = oFormatScheme.GetClassType();
+oSlide.RemoveAllObjects();
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oShape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, oFill, oStroke);
+oShape.SetPosition(608400, 1267200);
+oShape.SetSize(300 * 36000, 130 * 36000);
+oDocContent = oShape.GetDocContent();
+oParagraph = oDocContent.GetElement(0);
+oParagraph.SetJc("left");
+oParagraph.AddText("Class type = " + sType);
+oParagraph.AddLineBreak();
+oParagraph.AddText("Class type = " + sFontSchemeType);
+oParagraph.AddLineBreak();
+oParagraph.AddText("Class type = " + sFormatSchemeType);
+oSlide.AddObject(oShape);
+oSlide = Api.CreateSlide();
+oPresentation.AddSlide(oSlide);
+oClrScheme = oTheme.GetColorScheme();
+oClrScheme.ChangeColor(0, Api.CreateRGBColor(160, 82, 45));
+oSlide.RemoveAllObjects();
+oChart = Api.CreateChart("bar3D", [
+    [200, 240, 280],
+    [250, 260, 280]
+  ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+oChart.SetVerAxisTitle("USD In Hundred Thousands", 10);
+oChart.SetHorAxisTitle("Year", 11);
+oChart.SetLegendPos("bottom");
+oChart.SetShowDataLabels(false, false, true, false);
+oChart.SetTitle("Financial Overview", 20);
+oChart.SetSize(300 * 36000, 130 * 36000);
+oChart.SetPosition(608400, 1267200);
+oSlide.AddObject(oChart);
+builder.SaveFile("pptx", "ApiTheme.pptx");
+builder.CloseFile();

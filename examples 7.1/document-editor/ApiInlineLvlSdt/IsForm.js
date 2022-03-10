@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a combo box to the next line (Forms -> Combo Box), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aForms = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+var bForm = aForms[0].IsForm();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The first content control from this document is a form: " + bForm);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "IsForm.docx");
+builder.CloseFile();

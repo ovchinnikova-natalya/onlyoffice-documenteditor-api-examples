@@ -1,0 +1,18 @@
+builder.CreateFile("xlsx");
+oWorksheet = Api.GetActiveSheet();
+oRange = oWorksheet.GetRange("B1:D1");
+oRange.SetValue("1");
+oRange.Select();
+oAreas = oWorksheet.GetRange("B1:D1").GetAreas();
+oParent = oAreas.GetParent();
+sType = oParent.GetClassType();
+oRange = oWorksheet.GetRange('A4');
+oRange.SetValue("The areas parent: ");
+oRange.AutoFit(false, true);
+oWorksheet.GetRange('B4').Paste(oParent);
+oRange = oWorksheet.GetRange('A5');
+oRange.SetValue("The type of the areas parent: ");
+oRange.AutoFit(false, true);
+oWorksheet.GetRange('B5').SetValue(sType);
+builder.SaveFile("xlsx", "GetParent.xlsx");
+builder.CloseFile();

@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a text field to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aForms = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+var sClassType = aForms[0].GetClassType();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Class type: " + sClassType);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetAllForms.docx");
+builder.CloseFile();

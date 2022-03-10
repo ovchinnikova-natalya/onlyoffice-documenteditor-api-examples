@@ -1,0 +1,17 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+oFParagraph = oDocument.GetElement(0);
+oFParagraph.AddText("This is the text for the first line. The line brea is added after it.");
+oFParagraph.AddLineBreak();
+oSParagraph = Api.CreateParagraph();
+oSParagraph.AddTabStop();
+oSParagraph.AddText("This is just a sample text with a tab stop before it.");
+oDocument.Push(oSParagraph);
+oRange1 = oFParagraph.GetRange();
+oRange2 = oSParagraph.GetRange();
+oRange3 = oRange1.ExpandTo(oRange2);
+oRange3.Select();
+arr = ["test_1", "test_2"];
+Api.ReplaceTextSmart(arr, "", "");
+builder.SaveFile("docx", "ReplaceTextSmart.docx");
+builder.CloseFile();

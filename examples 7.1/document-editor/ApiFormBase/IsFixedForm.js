@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a combo box to the next line (Forms -> Combo Box), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aForms = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+aForms[0].SetFixedForm(true);
+var bFixed = aForms[0].IsFixedForm();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The first form from this document is fixed: " + bFixed);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "IsFixedForm.docx");
+builder.CloseFile();

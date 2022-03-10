@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a combo box to the next line (Forms -> Combo Box), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aComboBox = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+aComboBox[0].SetListValues(["Latvia", "USA", "UK"]);
+aComboBox[0].SelectListValue("USA");
+builder.SaveFile("docx", "SelectListValue.docx");
+builder.CloseFile();

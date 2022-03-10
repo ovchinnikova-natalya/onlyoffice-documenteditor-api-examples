@@ -1,8 +1,7 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
 oSlide = oPresentation.GetSlideByIndex(0);
-oMaster = oPresentation.GetMaster();
-oLayout = Api.CreateLayout(oMaster);
+oLayout = oSlide.GetLayout();
 oMaster = oLayout.GetMaster();
 sType = oMaster.GetClassType();
 oSlide.RemoveAllObjects();

@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a radio button to the next line (Forms -> Radio Button), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aRadioButton = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+aRadioButton[0].SetRadioGroup("Radio Group 1");
+var sRadioGroup = aRadioButton[0].GetRadioGroup();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Radio group name of the first radio button in this document: " + sRadioGroup);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetRadioGroup.docx");
+builder.CloseFile();

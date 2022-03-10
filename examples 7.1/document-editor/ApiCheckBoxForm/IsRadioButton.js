@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a radio button to the next line (Forms -> Radio Button), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aRadioButton = oDocument.GetAllForms();
+oParagraph.RemoveElement(0);
+var bRadioButton = aRadioButton[0].IsRadioButton();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The first content control from this document is a radio button: " + bRadioButton);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "IsRadioButton.docx");
+builder.CloseFile();

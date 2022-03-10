@@ -1,0 +1,13 @@
+builder.CreateFile("xlsx");
+oWorksheet = Api.GetActiveSheet();
+oRange = oWorksheet.GetRange("B1:D1");
+oRange.SetValue("1");
+oRange.Select();
+oAreas = oRange.GetAreas();
+nCount = oAreas.GetCount();
+oRange = oWorksheet.GetRange("A5");
+oRange.SetValue("The number of ranges in the areas: ");
+oRange.AutoFit(false, true);
+oWorksheet.GetRange("B5").SetValue(nCount);
+builder.SaveFile("xlsx", "GetAreas.xlsx");
+builder.CloseFile();

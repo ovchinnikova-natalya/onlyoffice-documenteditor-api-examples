@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+aTextForm = oDocument.GetAllForms();
+aTextForm[0].SetFixedForm(true);
+aTextForm[0].SetAutoFit(true);
+bAutoFit = aTextForm[0].IsAutoFit();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The first text form from this document is autofit: " + bAutoFit);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "IsAutoFit.docx");
+builder.CloseFile();

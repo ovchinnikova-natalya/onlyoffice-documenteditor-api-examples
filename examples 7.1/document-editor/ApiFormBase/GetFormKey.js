@@ -1,0 +1,10 @@
+builder.CreateFile("docx");
+oDocument = Api.GetDocument();
+aForms = oDocument.GetAllForms();
+aForms[0].SetFormKey("Key 1");
+sKey = aForms[0].GetFormKey();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Form key: " + sKey);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetFormKey.docx");
+builder.CloseFile();

@@ -1,11 +1,9 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
 oSlide = oPresentation.GetSlideByIndex(0);
-oMaster = oPresentation.GetMaster();
-oImage1 = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
-oMaster.AddDrawing(oImage1);
-oImage2 = Api.CreateImage("https://api.onlyoffice.com/content/img/editor/sharing_settings.png", 60 * 36000, 35 * 36000);
-oMaster.AddDrawing(oImage2);
+oMaster = oPresentation.GetMaster(0);
+oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+oMaster.AddObject(oImage);
 aImages = oMaster.GetAllImages();
 sType = aImages[0].GetClassType();
 oSlide.RemoveAllObjects();

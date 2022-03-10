@@ -1,7 +1,8 @@
 builder.CreateFile("pptx");
 oPresentation = Api.GetPresentation();
 oSlide = oPresentation.GetSlideByIndex(0);
-oLayout = Api.CreateLayout();
+oMaster = oPresentation.GetMaster(0);
+oLayout = oMaster.GetLayout(0);
 oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
 oLayout.SetBackground(oFill);
 oSlide.FollowLayoutBackground();
