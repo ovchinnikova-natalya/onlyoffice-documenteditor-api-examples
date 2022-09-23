@@ -1,11 +1,8 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
+var oTextForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
 var oParagraph = oDocument.GetElement(0);
-var oRun = Api.CreateRun();
-oRun.AddText("Add a text form to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
-oParagraph.AddElement(oRun);
-var aTextForm = oDocument.GetAllForms();
-oParagraph.RemoveElement(0);
-aTextForm[0].SetText("Country");
+oParagraph.AddElement(oTextForm);
+oTextForm.SetText("John Smith");
 builder.SaveFile("docx", "SetText.docx");
 builder.CloseFile();

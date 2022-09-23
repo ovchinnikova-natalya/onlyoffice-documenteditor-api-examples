@@ -1,0 +1,8 @@
+builder.CreateFile("xlsx");
+var oWorksheet = Api.GetActiveSheet();
+var oRange = oWorksheet.GetRange("C2:D6");
+var oAreas = oRange.GetAreas();
+oRange = Api.GetRangeByNumber(oWorksheet, 1, 1, 4, 5, oAreas);
+oRange.SetFillColor(oFillColor);
+builder.SaveFile("xlsx", "GetRangeByNumber.xlsx");
+builder.CloseFile();

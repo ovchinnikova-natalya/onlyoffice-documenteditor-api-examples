@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oTextPr = oDocument.GetDefaultTextPr();
+oTextPr.SetFontSize(30);
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("A sample text with the font size set to 15 points using the text properties.");
+var sJSON = oTextPr.ToJSON();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText(sJSON);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "ToJSON.docx");
+builder.CloseFile();

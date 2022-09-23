@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oPresetColor = Api.CreatePresetColor("lightYellow");
+var oGs1 = Api.CreateGradientStop(oPresetColor, 0);
+var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 164, 101), 100000);
+var oFill = Api.CreateRadialGradientFill([oGs1, oGs2]);
+var oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+var oDrawing = Api.CreateShape("rect", 5930900, 395605, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing);
+var sJSON = oPresetColor.ToJSON();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText(sJSON);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "ToJSON.docx");
+builder.CloseFile();

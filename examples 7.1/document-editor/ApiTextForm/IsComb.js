@@ -1,13 +1,10 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
+var oTextForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
 var oParagraph = oDocument.GetElement(0);
-var oRun = Api.CreateRun();
-oRun.AddText("Add a text form to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
-oParagraph.AddElement(oRun);
-var aTextForm = oDocument.GetAllForms();
-oParagraph.RemoveElement(0);
-aTextForm[0].SetComb(true);
-var bComb = aTextForm[0].IsComb();
+oParagraph.AddElement(oTextForm);
+oTextForm.SetComb(true);
+var bComb = oTextForm.IsComb();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("The first text form from this document is comb: " + bComb);
 oDocument.Push(oParagraph);

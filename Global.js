@@ -1,0 +1,138 @@
+// Global examples
+
+// Angle
+// Specify that the range contents will be rotated upward:
+oWorksheet.GetRange("A1").SetOrientation("xlUpward");
+
+// AxisPos
+// Set the axis values to the top position of the chart:
+oDrawing.SetAxieNumFormat("top", "0.00");
+
+// bookmarkRefTo
+// Add a cross-reference to the page containing a bookmark:
+oParagraph.AddBookmarkCrossRef("pageNum", aBookmarks[0]);
+
+// captionRefTo
+// Add a cross-reference to the page containing a caption:
+oParagraph.AddCaptionCrossRef("table", "pageNum", aCaptionParagraphs[0]);
+
+// captionType
+// Add a cross-reference to the page containing a table caption:
+oParagraph.AddCaptionCrossRef("table", "pageNum", aCaptionParagraphs[0]);
+
+// CheckBoxFormPr
+// Create a checkbox form with the common and specific checkbox form properties:
+var oCheckBoxFormPr = {"key": "Marital status", "tip": "Specify your marital status", "required": true, "placeholder": "Marital status", "radio": true};
+var oCheckBoxForm = Api.CreateCheckBoxForm(oCheckBoxFormPr);
+
+// CheckBoxFormPrBase
+// Create a checkbox form with the specific checkbox form properties:
+var oCheckBoxFormPrBase = {"radio": true};
+var oCheckBoxForm = Api.CreateCheckBoxForm(oCheckBoxFormPrBase);
+
+// ComboBoxFormPr
+// Create a combo box form with the common and specific combo box form properties:
+var oComboBoxFormPr = {"key": "Personal information", "tip": "Choose your country", "required": true, "placeholder": "Country", "editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]};
+var oComboBoxForm = Api.CreateComboBoxForm(oComboBoxFormPr);
+
+// ComboBoxFormPrBase
+// Create a combo box form with the specific combo box form properties:
+var oComboBoxFormPrBase = {"editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]};
+var oComboBoxForm = Api.CreateComboBoxForm(oComboBoxFormPrBase);
+
+// Direction
+// Return a Range object that represents the left end of the specified range:
+oWorksheet.GetRange("C4:D5").End("xlToLeft").SetFillColor(Api.CreateColorFromRGB(255, 224, 204));
+
+// endnoteRefTo
+// Add a cross-reference to the page containing an endnote:
+oParagraph.AddEndnoteCrossRef("pageNum", aEndNotesFirstParagraphs[0]);
+
+// footnoteRefTo
+// Add a cross-reference to the page containing an footnote:
+oParagraph.AddFootnoteCrossRef("pageNum", aFootnotesFirstParagraphs[0]);
+
+// FormPrBase
+// Create a text form with the common form properties:
+var oFormPrBase = {"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name"};
+var oTextForm = Api.CreateTextForm(oFormPrBase);
+
+// FormType
+// Return a type of the current form:
+var sFormType = oTextForm.GetFormType();
+
+// headingRefTo
+// Add a cross-reference to the page containing a heading:
+oParagraph.AddHeadingCrossRef("pageNum", aHeadingParagraphs[0]);
+
+// highlightColor
+// Highlight a paragraph in green:
+oParagraph.SetHighlight("green");
+
+// mm
+// Set the cell width measured in millimeters to the applied comb of characters:
+oTextForm.SetCellWidth(7);
+
+// numberedRefTo
+// Add a cross-reference to the page containing a numbered paragraph:
+oParagraph.AddNumberedCrossRef("pageNum", aNumberedParagraphs[1], true, true);
+
+// NumFormat
+// Set the "0.00" numeric format to the chart data point:
+oChart.SetDataPointNumFormat("0.00", 0, 1, true);
+
+// PageOrientation
+// Set the page orientation to portrait:
+oWorksheet.SetPageOrientation("xlPortrait");
+
+// percentage
+// Set the picture position measured in percent inside the current form:
+oPictureForm.SetPicturePosition(70, 70);
+
+// PictureFormPr
+// Create a picture form with the common and specific picture form properties:
+var oPictureFormPr = {"key": "Personal information", "tip": "Upload your photo", "required": true, "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50};
+var oPictureForm = Api.CreatePictureForm(oPictureFormPr);
+
+// PictureFormPrBase
+// Create a picture form with the specific picture form properties:
+var oPictureFormPrBase = {"scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50};
+var oPictureForm = Api.CreatePictureForm(oPictureFormPrBase);
+
+// ScaleFlag
+// Set the scaling condition when the current picture form is scaled if it is too big:
+oPictureForm.SetScaleFlag("tooBig");
+
+// SdtLock
+// Set the "sdtContentLocked" lock to the current inline text content control which means that the content cannot be edited and the container cannot be deleted:
+oInlineLvlSdt.SetLock("sdtContentLocked");
+
+// SortHeader
+// Specify that the first row contains header information:
+oWorksheet.GetRange("A1:C5").SetSort("A1:A5", "xlAscending", "B1:B5", "xlDescending", "C1:C5", "xlAscending", "xlYes", "xlSortColumns");
+
+// SortOrder
+// Specify that the sort order for the values specified in "A1:A5" is ascending:
+oWorksheet.GetRange("A1:C5").SetSort("A1:A5", "xlAscending", "B1:B5", "xlDescending", "C1:C5", "xlAscending", "xlYes", "xlSortColumns");
+
+// SortOrientation
+// Specify that the sort should be column:
+oWorksheet.GetRange("A1:C5").SetSort("A1:A5", "xlAscending", "B1:B5", "xlDescending", "C1:C5", "xlAscending", "xlYes", "xlSortColumns");
+
+// TextFormPr
+// Create a text form with the common and specific text form properties:
+var oTextFormPr = {"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false};
+var oTextForm = Api.CreateTextForm(oTextFormPr);
+
+// TextFormPrBase
+// Create a text form with the specific text form properties:
+var oTextFormPrBase = {"comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false};
+var oTextForm = Api.CreateTextForm(oTextFormPrBase);
+
+// TextTransform
+// Create a Text Art object with the "textArchUp" text transform type:
+var oTextArt = Api.CreateWordArt(oTextPr, "onlyoffice", "textArchUp", oFill, oStroke, 0, 150 * 36000, 50 * 36000);
+
+// TickMark
+// Specify the "cross" major tick mark type for the vertical axis:
+oChart.SetVertAxisMajorTickMark("cross");

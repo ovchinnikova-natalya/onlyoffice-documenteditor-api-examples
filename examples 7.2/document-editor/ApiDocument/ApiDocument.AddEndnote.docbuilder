@@ -1,0 +1,7 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument(); 
+var oParagraph = oDocument.GetElement(0); 
+oParagraph.AddText("This is just a sample text.");
+oDocument.AddEndnote();
+builder.SaveFile("docx", "AddEndnote.docx");
+builder.CloseFile();

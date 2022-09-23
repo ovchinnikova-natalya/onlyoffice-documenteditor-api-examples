@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oDrawing = Api.CreateChart("bar3D", [
+  [200, 240, 280],
+  [250, 260, 280]
+], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+oDrawing.SetShowPointDataLabel(1, 0, false, false, true, false);
+oDrawing.SetDataPointNumFormat("0.00", 1, 0, true);
+oParagraph.AddDrawing(oDrawing);
+builder.SaveFile("docx", "SetDataPointNumFormat.docx");
+builder.CloseFile();

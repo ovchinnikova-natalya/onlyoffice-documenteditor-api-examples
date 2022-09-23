@@ -1,6 +1,6 @@
 builder.CreateFile("docx");
-oDocument = Api.GetDocument();
-oBlockLvlSdt = Api.CreateBlockLvlSdt();
+var oDocument = Api.GetDocument();
+var oBlockLvlSdt = Api.CreateBlockLvlSdt();
 oDocument.AddElement(0, oBlockLvlSdt);
 oBlockLvlSdt.SetPlaceholderText("Name");
 builder.SaveFile("docx", "SetPlaceholderText.docx");

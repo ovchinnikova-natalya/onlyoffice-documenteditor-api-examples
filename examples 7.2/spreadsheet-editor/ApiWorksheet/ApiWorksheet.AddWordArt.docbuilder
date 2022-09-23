@@ -1,0 +1,13 @@
+builder.CreateFile("xlsx");
+var oWorksheet = Api.GetActiveSheet();
+var oTextPr = Api.CreateTextPr();
+oTextPr.SetFontSize(72);
+oTextPr.SetBold(true);
+oTextPr.SetCaps(true);
+oTextPr.SetColor(0, 0, 255, false);
+oTextPr.SetFontFamily("Comic Sans MS");
+var oFill = Api.CreateSolidFill(Api.CreateRGBColor(135, 206, 250));
+var oStroke = Api.CreateStroke(1 * 36000, Api.CreateSolidFill(Api.CreateRGBColor(0, 0, 255)));
+oWorksheet.AddWordArt(oTextPr, "onlyoffice", "textArchUp", oFill, oStroke, 0, 100 * 36000, 20 * 36000, 0, 2, 2 * 36000, 3 * 36000);
+builder.SaveFile("xlsx", "AddWordArt.xlsx");
+builder.CloseFile();

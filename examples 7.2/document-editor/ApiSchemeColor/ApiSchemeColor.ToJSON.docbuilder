@@ -1,0 +1,14 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oSchemeColor = Api.CreateSchemeColor("accent6");
+var oFill = Api.CreateSolidFill(oSchemeColor);
+var oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+var oDrawing = Api.CreateShape("curvedUpArrow", 5930900, 595605, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing);
+var sJSON = oSchemeColor.ToJSON();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText(sJSON);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "ToJSON.docx");
+builder.CloseFile();

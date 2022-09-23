@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oRun = Api.CreateRun();
+oRun.AddText("Add a text form to the next line (Forms -> Text Field), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
+oParagraph.AddElement(oRun);
+var aContentControls = oDocument.GetAllContentControls();
+oParagraph.RemoveElement(0);
+aContentControls[0].AddText("This is an inline text content control.");
+var oTextForm = aContentControls[0].GetForm();
+var sType = oTextForm.GetClassType();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Form type: " + sType);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetForm.docx");
+builder.CloseFile();

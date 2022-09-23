@@ -1,10 +1,10 @@
 builder.CreateFile("docx");
-oDocument = Api.GetDocument();
-oBlockLvlSdt = Api.CreateBlockLvlSdt();
+var oDocument = Api.GetDocument();
+var oBlockLvlSdt = Api.CreateBlockLvlSdt();
 oDocument.AddElement(0, oBlockLvlSdt);
 oBlockLvlSdt.SetPlaceholderText("Name");
-sText = oBlockLvlSdt.GetPlaceholderText();
-oParagraph = Api.CreateParagraph();
+var sText = oBlockLvlSdt.GetPlaceholderText();
+var oParagraph = Api.CreateParagraph();
 oParagraph.AddText("Placeholder text: " + sText);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetPlaceholderText.docx");

@@ -1,0 +1,18 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oCheckBoxForm = Api.CreateCheckBoxForm({"tip": "Specify your marital status", "required": true, "placeholder": "Marital status", "radio": true});
+oCheckBoxForm.SetRadioGroup("Marital status");
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddElement(oCheckBoxForm);
+oParagraph.AddText(" Married");
+oParagraph.AddLineBreak();
+oCheckBoxForm = Api.CreateCheckBoxForm({"tip": "Specify your marital status", "required": true, "placeholder": "Marital status", "radio": true});
+oCheckBoxForm.SetRadioGroup("Marital status");
+oParagraph.AddElement(oCheckBoxForm);
+oParagraph.AddText(" Single");
+var sText = oCheckBoxForm.GetText();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Form text: " + sText);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetText.docx");
+builder.CloseFile();

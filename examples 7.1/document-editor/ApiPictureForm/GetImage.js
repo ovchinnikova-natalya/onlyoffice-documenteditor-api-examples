@@ -1,13 +1,10 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
+var oPictureForm = Api.CreatePictureForm({"key": "Personal information", "tip": "Upload your photo", "required": true, "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
 var oParagraph = oDocument.GetElement(0);
-var oRun = Api.CreateRun();
-oRun.AddText("Add a picture form to the next line (Forms -> Image), copy the macro above (without the first and last two lines) and run it (Plugins -> Macros).");
-oParagraph.AddElement(oRun);
-var aPictureForm = oDocument.GetAllForms();
-oParagraph.RemoveElement(0);
-aPictureForm[0].SetImage("https://api.onlyoffice.com/content/img/editor/e-download.png");
-var sImage = aPictureForm[0].GetImage();
+oParagraph.AddElement(oPictureForm);
+oPictureForm.SetImage("https://api.onlyoffice.com/content/img/editor/e-download.png");
+var sImage = oPictureForm.GetImage();
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("An image from the picture form in the base64 format: " + sImage);
 oDocument.Push(oParagraph);

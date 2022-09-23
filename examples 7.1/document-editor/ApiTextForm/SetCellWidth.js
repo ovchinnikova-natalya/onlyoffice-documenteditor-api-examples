@@ -1,7 +1,9 @@
 builder.CreateFile("docx");
-oDocument = Api.GetDocument();
-aTextForm = oDocument.GetAllForms();
-aTextForm[0].SetComb(true);
-aTextForm[0].SetCellWidth(30);
+var oDocument = Api.GetDocument();
+var oTextForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "maxCharacters": 10, "multiLine": false, "autoFit": false});
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddElement(oTextForm);
+oTextForm.SetComb(true);
+oTextForm.SetCellWidth(3);
 builder.SaveFile("docx", "SetCellWidth.docx");
 builder.CloseFile();

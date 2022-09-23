@@ -1,7 +1,8 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
+var oTextForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
 var oParagraph = oDocument.GetElement(0);
-oParagraph.AddText("Add a text field to the next line (Forms -> Text Field). It will be highlighted with yellow color.");
+oParagraph.AddElement(oTextForm);
 oDocument.SetFormsHighlight(255, 255, 0);
 builder.SaveFile("docx", "SetFormsHighlight.docx");
 builder.CloseFile();

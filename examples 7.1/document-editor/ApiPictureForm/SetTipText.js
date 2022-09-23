@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oPictureForm = Api.CreatePictureForm({"key": "Personal information", "required": true, "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddElement(oPictureForm);
+oPictureForm.SetTipText("Upload your photo");
+var sTipText = oPictureForm.GetTipText();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Tip text: " + sTipText);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "SetTipText.docx");
+builder.CloseFile();

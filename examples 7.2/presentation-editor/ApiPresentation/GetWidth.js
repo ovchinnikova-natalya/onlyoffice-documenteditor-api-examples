@@ -1,0 +1,16 @@
+builder.CreateFile("pptx");
+var oPresentation = Api.GetPresentation();
+oPresentation.SetSizes(254 * 36000, 190 * 36000);
+var oSlide = oPresentation.GetCurrentSlide();
+oSlide.RemoveAllObjects();
+var oFill = Api.CreateSolidFill(Api.CreateRGBColor(61, 74, 107));
+var oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+var oShape = Api.CreateShape("rect", 200 * 36000, 130 * 36000, oFill, oStroke);
+oShape.SetPosition(608400, 1267200);
+oSlide.AddObject(oShape);
+var oDocContent = oShape.GetDocContent();
+var oParagraph = oDocContent.GetElement(0);
+var nPresWidth = oPresentation.GetWidth();
+oParagraph.AddText("The presentation width = " + nPresWidth / 36000 + " mm");
+builder.SaveFile("pptx", "GetWidth.pptx");
+builder.CloseFile();

@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oTableStyle = oDocument.GetStyle("Bordered - Accent 5");
+oTableStyle.SetName("My Custom Style");
+var oTable = Api.CreateTable(2, 2);
+oTable.SetWidth("percent", 100);
+oTable.SetStyle(oTableStyle);
+oDocument.Push(oTable);
+var sJSON = oTableStyle.ToJSON();
+var oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The ApiStyle object in the JSON format: ");
+oParagraph.AddLineBreak();
+oParagraph.AddText(sJSON);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "ToJSON.docx");
+builder.CloseFile();
