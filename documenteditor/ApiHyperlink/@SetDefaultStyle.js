@@ -1,10 +1,12 @@
 builder.CreateFile("docx");
-oDocument = Api.GetDocument();
-oParagraph = oDocument.GetElement(0);
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Api Document Builder");
-oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
-oText = oHyperlink.GetLinkedText();
-oParagraph.SetFontSize(16);
-oHyperlink.SetDefaultStyle();
+oParagraph.SetColor(255, 111, 61);
+var oCopyParagraph = oParagraph.Copy();
+oDocument.Push(oCopyParagraph);
+var oHyperlink = oParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+var oCopyHyperlink = oCopyParagraph.AddHyperlink("http://api.teamlab.info/docbuilder/basic");
+oCopyHyperlink.SetDefaultStyle();
 builder.SaveFile("docx", "SetDefaultStyle .docx");
 builder.CloseFile();
